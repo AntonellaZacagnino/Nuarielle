@@ -2,6 +2,7 @@
 .navbar {
   background-color: #d8a3b3;
   display: flex;
+  align-items: center;
   font-family: "Quicksand", sans-serif;
 }
 .navbar img {
@@ -11,11 +12,9 @@
 .navbar ul {
   display: flex;
   list-style: none;
-  margin: 0;
 }
 .navbar ul li {
   padding: 2vh 4vh;
-  margin-top: 2vh;
 }
 .navbar ul li a {
   color: white;
@@ -23,6 +22,10 @@
 }
 .navbar ul li:hover {
   border: 2px dotted white;
+}
+
+.menu{
+  width: 80%;
 }
 
 /*# sourceMappingURL=navbar.css.map */

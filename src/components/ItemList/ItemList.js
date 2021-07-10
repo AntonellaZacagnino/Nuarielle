@@ -47,7 +47,7 @@ export const ItemList = () => {
                 setTimeout(() => {
                     resolve(items)
                 },
-                3000
+                2000
                 )
             }
         )

@@ -1,10 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;700&display=swap");
 
 
-.saludo{
+.items{
     text-align: center;
     h1{
     font-family: "Quicksand", sans-serif;
+    }
+    ul{
+        display: flex;
+        justify-content: space-around;
+        flex-flow: row wrap;
+        li{
+            background-color: #f9e2c7;
+            list-style: none;
+            margin-bottom: 5vh;
+            padding:3vh;
+            box-shadow: 6px 4px 23px -2px #B5B5B5;
+            div{
+                border: 5px double #ef9cae;
+                padding: 10px;
+                h6{
+                    font-size: 25px;
+                    margin: 10px 0;
+                    color: #89e0e0;
+                    text-shadow: 2px 2px 5px #694b3b;
+                }
+                img{
+                    width: 350px;
+                    height: 300px;
+                }
+                p{
+                    background-color: #89e0e0;
+                    color: #694b3b;
+                    padding: 5px;
+                    margin: 10px 60px;
+                    border-radius:10px;
+                }
+            }
+        }
     }
 }
 /*# sourceMappingURL=ItemListContainer.scss.map */

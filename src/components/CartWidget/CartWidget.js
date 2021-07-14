@@ -3,7 +3,7 @@ import './CartWidget.css';
 
 const CartWidget = () =>  {
     return (
-        <a href="#"><span id="icon" class="material-icons">shopping_cart</span> </a>
+        <a href="#"><span id="icon" className="material-icons">shopping_cart</span> </a>
     )
 }
 

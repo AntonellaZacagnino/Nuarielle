@@ -10,6 +10,9 @@
         display: flex;
         justify-content: space-around;
         flex-flow: row wrap;
+        a{
+            text-decoration-line: none;
+        }
         li{
             background-color: #f9e2c7;
             list-style: none;
@@ -40,4 +43,3 @@
         }
     }
 }
-/*# sourceMappingURL=ItemListContainer.scss.map */

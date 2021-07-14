@@ -57,7 +57,7 @@ export const ItemList = () => {
     return (
         <div className="items">
             <ul>
-                {itemsDisplay.map(item => <Item key={item.id} nombre={item.nombre} imagen={item.imagen} precio={item.precio} /> )}
+                {itemsDisplay.map(item => <Item item={item} /> )}
             </ul>    
         </div>    
     )

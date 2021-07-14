@@ -10,6 +10,9 @@
   justify-content: space-around;
   flex-flow: row wrap;
 }
+.items ul a {
+  text-decoration-line: none;
+}
 .items ul li {
   background-color: #f9e2c7;
   list-style: none;
@@ -38,7 +41,5 @@
   margin: 10px 60px;
   border-radius: 10px;
 }
-
-/*# sourceMappingURL=ItemListContainer.scss.map */
 
 /*# sourceMappingURL=ItemListContainer.css.map */

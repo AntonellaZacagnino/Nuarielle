@@ -1,0 +1,24 @@
+.item-detail{
+    box-shadow: 0px 0px 15px 10px rgb(0,0,0,0.8);
+    text-align: center;
+    background-color: #714d41;
+    margin: 2rem 15rem;
+    padding: 2rem 6vh;
+    display: flex;
+    img{
+        width: 70vh;
+    }
+}
+
+.detail{
+    margin-left: 10vh;
+    h1{
+        color: #d8a3b3;
+        text-shadow: -3px 1px 1px #f9e2c7;
+        text-decoration: underline;
+        text-decoration-color: #82bfbc;
+    }
+    p{
+        color:white;
+    }
+}

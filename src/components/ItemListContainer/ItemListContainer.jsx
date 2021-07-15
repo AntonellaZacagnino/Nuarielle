@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './ItemListContainer.css';
 import {ItemCount} from '../ItemCount/ItemCount';
 import {ItemList} from '../ItemList/ItemList';
-import { ItemDetailContainer } from '../ItemDetailContainer/ItemDetailContainer';
+import { useParams } from 'react-router-dom';
 
-const ItemListContainer = () =>  {
+export const ItemListContainer = () =>  {
+        const [categoria, setCategoria] = useState()
+        const {catId} = useParams();
+        useEffect(() => {
+            return () => {
+                setCategoria(catId)
+            }
+        }, [catId])
 
       return (
         <div>
-            <ItemDetailContainer />
             <ItemCount stock={8} initial={0} />
-            <ItemList />
+            <ItemList categoria={catId} />
         </div>
     )
 }
-
-export default ItemListContainer;

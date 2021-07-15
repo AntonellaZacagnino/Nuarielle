@@ -13,6 +13,10 @@
 .items ul a {
   text-decoration-line: none;
 }
+.items ul a:hover {
+  opacity: 0.5;
+  transition: 0.3s;
+}
 .items ul li {
   background-color: #f9e2c7;
   list-style: none;

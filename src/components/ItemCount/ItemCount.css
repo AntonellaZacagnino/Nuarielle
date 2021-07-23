@@ -2,6 +2,9 @@
 .itemCount {
   margin-top: 5vh;
   text-align: center;
+  background: #f9e2c7;
+  border-radius: 40px;
+  padding: 1vh 0;
 }
 .itemCount h1 {
   font-family: "Quicksand", sans-serif;

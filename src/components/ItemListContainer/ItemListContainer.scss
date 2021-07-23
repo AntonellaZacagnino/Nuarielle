@@ -3,6 +3,7 @@
 
 .items{
     text-align: center;
+    
     h1{
     font-family: "Quicksand", sans-serif;
     }
@@ -10,8 +11,10 @@
         display: flex;
         justify-content: space-around;
         flex-flow: row wrap;
+        
         a{
             text-decoration-line: none;
+            transition: 5s;
         }
         a:hover{
             opacity: 0.5;

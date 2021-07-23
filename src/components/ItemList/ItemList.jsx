@@ -157,7 +157,7 @@ export const ItemList = ({categoria}) => {
     return (
         <div className="items">
             <ul>
-                {itemsDisplay.map(item => <Item item={item} /> )}
+                {itemsDisplay.map(item => <Item item={item} categoria={categoria} /> )}
             </ul>    
         </div>    
     )

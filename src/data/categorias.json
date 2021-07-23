@@ -1,0 +1,20 @@
+{ 
+    "categorias" : [
+        {
+            "id": "personalizadas",
+            "nombre": "Tortas personalizadas"
+        },
+        {
+            "id": "tortas",
+            "nombre": "Tortas"
+        },
+        {   
+            "id": "cupcakes",
+            "nombre": "Cupcakes"
+        },
+        {
+            "id": "combos",
+            "nombre": "Combos"
+        } 
+    ]
+}

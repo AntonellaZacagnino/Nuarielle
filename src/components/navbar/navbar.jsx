@@ -3,26 +3,9 @@ import './navbar.css';
 import logo from '../../logo.png'
 import CartWidget from '../CartWidget/CartWidget.js';
 import {Link, NavLink} from 'react-router-dom';
+import {categorias} from '../../data/categorias.json'
 
 export const Navbar = () =>  {
-    const categorias = [
-                        {
-                            id: 'personalizadas',
-                            nombre: 'Tortas personalizadas'
-                        },
-                        {
-                            id: 'tortas',
-                            nombre: "Tortas"
-                        },
-                        {
-                            id: 'cupcakes',
-                            nombre: "Cupcakes"
-                        },
-                        {
-                            id: 'combos',
-                            nombre: "Combos"
-                        } 
-                    ];
 
     return  (
     <div className='navbar'>

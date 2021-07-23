@@ -12,6 +12,7 @@
 }
 .items ul a {
   text-decoration-line: none;
+  transition: 5s;
 }
 .items ul a:hover {
   opacity: 0.5;

@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@200;300;700&display=swap");
+.cart-container {
+  text-align: center;
+}
+.cart-container h1 {
+  font-family: "Quicksand" !important;
+}
+.cart-container h4 {
+  font-family: "Quicksand" !important;
+}
+.cart-container ul {
+  padding: 0 100px;
+}
+.cart-container ul li {
+  display: flex;
+  padding: 20px 0;
+  place-content: center;
+  justify-content: space-around;
+  background-color: #f9e2c7;
+  border-bottom: 1px solid white;
+  color: #6f5041;
+}
+.cart-container ul li img {
+  width: 50px;
+  height: 50px;
+}
+.cart-container ul li button {
+  background: none;
+  border: none;
+}
+.cart-container ul li button span {
+  color: #6f5041;
+  cursor: pointer;
+}
+.cart-container #borrar {
+  background: #89e0e0;
+  border: 4px #f29eb0;
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: #6f5041;
+}
+
+/*# sourceMappingURL=Cart.css.map */

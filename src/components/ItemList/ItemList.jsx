@@ -1,8 +1,18 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import {Item} from '../Item/Item'
+import BounceLoader from "react-spinners/BounceLoader";
+import { css } from "@emotion/react";
+import { CartContext } from '../../context/cartContext';
 
 export const ItemList = ({categoria}) => {
     const [itemsDisplay, setItemsDisplay] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const override = css`
+        display: block;
+        margin: 20vh auto;
+        border-color: red;
+    `;
+
     const tortas = [
         {
             id: 1,
@@ -142,10 +152,13 @@ export const ItemList = ({categoria}) => {
                     {key:'combos', array: combos}
                 ]
     
+    const contexto = useContext(CartContext);
+    
     const showItems = () => {
         return new Promise((resolve) => {
-                setTimeout(() => {
+            setTimeout(() => {
                     resolve(items)
+                    setLoading(false)
                 },
                 2000
                 )
@@ -153,11 +166,15 @@ export const ItemList = ({categoria}) => {
         )
     }
     
-    showItems().then((res) => res.map(i => {if(i.key == categoria){ setItemsDisplay(i.array)}} ))
+    showItems().then((res) => res.map(i => {if(i.key === categoria){ setItemsDisplay(i.array)}} ))
     return (
         <div className="items">
             <ul>
-                {itemsDisplay.map(item => <Item item={item} categoria={categoria} /> )}
+                {!loading ? 
+                itemsDisplay.map((item) => <Item item={item} categoria={categoria} key={item.id} /> )
+                :
+                <BounceLoader css={override} size={150} color={"#d8a3b3"} loading={loading} speedMultiplier={1} />
+                }
             </ul>    
         </div>    
     )

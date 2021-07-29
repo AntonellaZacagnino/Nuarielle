@@ -34,4 +34,10 @@
   color: #727272;
 }
 
+@media (max-width: 1200px) {
+  .itemCount .add, .itemCount .remove {
+    margin: 0 1vh;
+  }
+}
+
 /*# sourceMappingURL=ItemCount.css.map */

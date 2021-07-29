@@ -1,4 +1,18 @@
-#icon{
-    color:white !important; 
-    font-size:30px;
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;700&display=swap");
+a {
+  text-decoration: none;
 }
+
+#count {
+  color: white;
+  font-weight: bold;
+  font-family: "Quicksand";
+}
+
+#icon {
+  color: white !important;
+}
+
+/*# sourceMappingURL=CartWidget.scss.map */
+
+/*# sourceMappingURL=CartWidget.css.map */

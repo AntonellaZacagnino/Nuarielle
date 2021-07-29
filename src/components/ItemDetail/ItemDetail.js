@@ -1,26 +1,40 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './ItemDetail.css';
 import {ItemCount} from '../ItemCount/ItemCount';
 import {Link} from 'react-router-dom';
+import { CartContext } from '../../context/cartContext';
 
-export const ItemDetail = ({item}) => {
+export const ItemDetail = ({id, nombre, imagen, descripcion, precio}) => {
     const [count, setCount] = useState(0);
     const [finalizar, setFinalizar] = useState(false);
 
     const finalizarCompra = () => {if (count > 0) setFinalizar(!finalizar)};
+    
+    const {agregarItem, carrito} = useContext(CartContext);
 
+    const añadirItem = () => {
+
+        agregarItem({
+            id,
+            nombre,
+            precio,
+            imagen,
+            count
+        })
+        finalizarCompra()
+    }
 
     return (
         <div className='item-detail'>
-            <img src={item.imagen} alt={item.nombre} />
+            <img src={imagen} alt={nombre} />
             <div className='detail'>
-                <h1>{item.nombre}</h1>
-                <p>Precio: <b>${item.precio} </b></p>
-                <p><i>{item.descripcion}</i></p>
+                <h1>{nombre}</h1>
+                <p>Precio: <b>${precio} </b></p>
+                <p><i>{descripcion}</i></p>
                 {!finalizar ? (
                     <div className='compra'>
                     <ItemCount stock={8} initial={0} count={count} setCount={setCount} />
-                    <button onClick={finalizarCompra}> Añadir al carrito</button>
+                    <button onClick={añadirItem}> Añadir al carrito</button>
                     </div>
 
                 ) : (

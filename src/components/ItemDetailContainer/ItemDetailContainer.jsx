@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import {ItemDetail} from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
+import BounceLoader from "react-spinners/BounceLoader";
+import { css } from "@emotion/react";
 
 export const ItemDetailContainer = () => {
     const {itemId} = useParams();
+    const [loading, setLoading] = useState(true);
+    const override = css`
+        display: block;
+        margin: 20vh auto;
+        border-color: red;
+    `;
 
     const [displayItem, setDisplayItem] = useState([]);
     const items = [
@@ -153,6 +161,7 @@ export const ItemDetailContainer = () => {
         return new Promise((resolve) => {
                 setTimeout(() => {
                     resolve(items)
+                    setLoading(false)
                 },
                 2000
                 )
@@ -160,11 +169,14 @@ export const ItemDetailContainer = () => {
         )
     }
     
-    showItem().then((res) => res.map(item => {if(item.id == itemId){ setDisplayItem(item) } } ))
-
+    showItem().then((res) => res.map((item) => {if(item.id == itemId){ setDisplayItem(item) } } ))
     return (
         <div>
-            {<ItemDetail item={displayItem} />}
+            {!loading ? 
+            displayItem && <ItemDetail {...displayItem} />
+            :
+            <BounceLoader css={override} size={150} color={"#d8a3b3"} loading={loading} speedMultiplier={1} />
+            }
         </div>
     )
 }

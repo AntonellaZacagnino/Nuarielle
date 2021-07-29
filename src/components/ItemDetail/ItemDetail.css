@@ -10,7 +10,7 @@
   animation-duration: 5s;
 }
 .item-detail img {
-  width: 70vh;
+  width: 50%;
 }
 
 .detail {
@@ -42,6 +42,11 @@
   }
   100% {
     opacity: 1;
+  }
+}
+@media (max-width: 1200px) {
+  .item-detail {
+    display: block;
   }
 }
 

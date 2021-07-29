@@ -14,7 +14,7 @@ export const Navbar = () =>  {
         </div>
         <div className="menu">
             <ul>
-                {categorias.map(cat => <li> <NavLink to={`/categoria/${cat.id}`} activeClassName='active'>{cat.nombre} </NavLink></li>)}
+                {categorias.map(cat => <li key={cat.id} > <NavLink to={`/categoria/${cat.id}`} activeClassName='active'>{cat.nombre} </NavLink></li>)}
             </ul>
         </div>
         <CartWidget />

@@ -5,11 +5,16 @@ import './CartWidget.css';
 
 const CartWidget = () =>  {
 
-    const {cantidadCarrito, totalCarrito } = useContext(CartContext);
+    const {cantidadCarrito} = useContext(CartContext);
     
     return (
         <Link to={'/carrito'}>
-            <span id='count'>{cantidadCarrito()} </span> 
+            {cantidadCarrito() > 0 ? 
+            (
+                <span id='count'>{cantidadCarrito()} </span> 
+            ) : (
+                <span ></span> 
+            )}
             <span id="icon" className="material-icons">shopping_cart</span> 
         </Link>
     )

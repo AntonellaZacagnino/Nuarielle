@@ -1,16 +1,22 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/cartContext'
 import './Cart.css';
 
 export const Cart = () => {
 
-    const {carrito, eliminarItem, limpiarCarrito} = useContext(CartContext)
+    const {carrito, eliminarItem, limpiarCarrito, totalCarrito, totalItem} = useContext(CartContext)
 
     return (
         <div className="cart-container">
             <h1>Carrito de compras</h1>
             {carrito.length == 0 ?(
-                <h4>Actualmente no hay productos en el carrito :(</h4>
+                <div>
+                    <h4>Actualmente no hay productos en el carrito :(</h4>
+                    <Link to={'/'}>
+                        <button id="borrar">Volver al inicio</button>
+                    </Link>
+                </div>
             ) : (
                 <div>
                     <ul>
@@ -18,7 +24,7 @@ export const Cart = () => {
                             <li key={c.id}> 
                                 <img src={c.imagen} alt={c.nombre} />
                                 <p>{c.nombre}</p>
-                                <p>Precio: {c.precio}</p>
+                                <p>Precio Total: {totalItem(c)}</p>
                                 <p>Cantidad: {c.count}</p>
                                 <button onClick={() => eliminarItem(c.id)}>
                                     <span  className="material-icons" >delete</span> 
@@ -26,6 +32,7 @@ export const Cart = () => {
                             </li>
                         )}
                     </ul>
+                    <h2>Total: {totalCarrito()}</h2>
                     <button id="borrar" onClick={limpiarCarrito}>Vaciar carrito</button>
                 </div>
             )}

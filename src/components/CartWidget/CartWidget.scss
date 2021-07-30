@@ -5,12 +5,26 @@ a{
 }
 
 #count{
-  color: white;
+  color: #714d41;
+  font-size: 10px;
   font-weight: bold;
-  font-family: 'Quicksand';
+  background: #f9e2c7;
+  border-radius: 40px;
+  font-family: "Quicksand";
+  padding: 2px 5px;
+  text-align: center;
+  position: relative;
+  left: 10px;
 }
 #icon {
   color: white !important;
+}
+
+@media (max-width: 1200px){
+  #count{
+    left: -5px;
+    top: 30px;
+  }
 }
 
 /*# sourceMappingURL=CartWidget.scss.map */

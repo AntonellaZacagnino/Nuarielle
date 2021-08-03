@@ -22,7 +22,7 @@ export const Cart = () => {
                     <ul>
                         {carrito.map(c  => 
                             <li key={c.id}> 
-                                <img src={c.imagen} alt={c.nombre} />
+                                <img src={c.img} alt={c.nombre} />
                                 <p>{c.nombre}</p>
                                 <p>Precio Total: {totalItem(c)}</p>
                                 <p>Cantidad: {c.count}</p>

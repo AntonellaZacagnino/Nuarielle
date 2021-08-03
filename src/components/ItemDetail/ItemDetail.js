@@ -4,7 +4,7 @@ import {ItemCount} from '../ItemCount/ItemCount';
 import {Link} from 'react-router-dom';
 import { CartContext } from '../../context/cartContext';
 
-export const ItemDetail = ({id, nombre, imagen, descripcion, precio}) => {
+export const ItemDetail = ({id, nombre, img, descripcion, precio}) => {
     const [count, setCount] = useState(0);
     const [finalizar, setFinalizar] = useState(false);
 
@@ -18,7 +18,7 @@ export const ItemDetail = ({id, nombre, imagen, descripcion, precio}) => {
             id,
             nombre,
             precio,
-            imagen,
+            img,
             count
         })
         finalizarCompra()
@@ -26,7 +26,7 @@ export const ItemDetail = ({id, nombre, imagen, descripcion, precio}) => {
 
     return (
         <div className='item-detail'>
-            <img src={imagen} alt={nombre} />
+            <img src={img} alt={nombre} />
             <div className='detail'>
                 <h1>{nombre}</h1>
                 <p>Precio: <b>${precio} </b></p>

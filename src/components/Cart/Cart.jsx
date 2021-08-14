@@ -1,12 +1,14 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/cartContext'
+import { Form } from '../Form/Form';
 import './Cart.css';
 
 export const Cart = () => {
 
     const {carrito, eliminarItem, limpiarCarrito, totalCarrito, totalItem} = useContext(CartContext)
 
+    const total = totalCarrito()
     return (
         <div className="cart-container">
             <h1>Carrito de compras</h1>
@@ -32,8 +34,9 @@ export const Cart = () => {
                             </li>
                         )}
                     </ul>
-                    <h2>Total: {totalCarrito()}</h2>
+                    <h2>Total: {total}</h2>
                     <button id="borrar" onClick={limpiarCarrito}>Vaciar carrito</button>
+                    <Form carrito={carrito} total={total} limpiarCarrito={limpiarCarrito} />
                 </div>
             )}
         </div>

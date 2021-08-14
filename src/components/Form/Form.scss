@@ -1,0 +1,26 @@
+.form-container{
+    display: block;
+    text-align: -webkit-center;
+}
+
+form{
+    display: grid;
+    background: #f9e2c7;
+    width: 300px;
+    input{
+        width: 250px;
+        justify-self: center;
+        padding: 5px;
+        margin: 10px 0px;
+        border: none;
+        border-radius: 13px;
+        text-indent: 10px;
+    }
+    button{
+        background: #89e0e0;
+        border: 4px #f29eb0;
+        padding: 10px 20px;
+        border-radius: 30px;
+        color: #6f5041;
+    }
+}

@@ -19,7 +19,14 @@ export const ItemDetailContainer = () => {
         const db = getFirestore();
         const productos = db.collection("productos");
         productos.get().then((query) => {
-            query.docs.map(doc => {if (doc.id === itemId){ setDisplayItem({...doc.data(), id:doc.id})}})
+            query.docs.map(doc => {
+                if (doc.id === itemId){
+                    setDisplayItem({
+                        ...doc.data(), 
+                        id:doc.id
+                    })
+                }
+            })
         }).finally(() => {
             setLoading(false)
         })

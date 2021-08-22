@@ -7,7 +7,7 @@
   padding: 2rem 6vh;
   display: flex;
   animation-name: show;
-  animation-duration: 5s;
+  animation-duration: 2s;
 }
 .item-detail img {
   width: 50%;

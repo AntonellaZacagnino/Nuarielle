@@ -12,7 +12,7 @@ export const Cart = () => {
     return (
         <div className="cart-container">
             <h1>Carrito de compras</h1>
-            {carrito.length == 0 ?(
+            {carrito.length === 0 ?(
                 <div>
                     <h4>Actualmente no hay productos en el carrito :(</h4>
                     <Link to={'/'}>

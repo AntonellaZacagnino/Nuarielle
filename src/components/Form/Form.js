@@ -38,36 +38,30 @@ export const Form = ({ carrito, total, limpiarCarrito }) => {
             .catch((error) =>{
                 alert('Error!' + error)
             })
-        console.log( database.collection('productos').doc('productos'));
         const checkearProductos = database.collection('productos').where(
-            firebase.firestore.fieldPath.documentId(),
+            firebase.firestore.FieldPath.documentId(),
             "in",
             carrito.map((item) => item.id)
         )
 
         checkearProductos.get().then((query) => {
-            const batch = database.batch();
             
             const productosAgotados = [];
 
             query.docs.forEach((doc, index) => {
-                console.log();
                 if (doc.data().stock >= pedidoNuevo.items[index].count) {
-                    batch.update(doc.ref, {
+                    const producto = database.collection('productos').doc(doc.id)
+                    producto.update({
                         stock: doc.data().stock - pedidoNuevo.items[index].count
+                    }).then(() => {
+                        alert('Gracias por tu compra!');
+                        limpiarCarrito();
                     })
                 } else {
                     productosAgotados.push({ ...doc.data(), id: doc.id })
+                    alert('Error! Alguno de los items que seleccionaste estan agotados :(');
                 }
             })
-            if (checkearProductos === 0){
-                batch.commit().then(() => {
-                    alert('Gracias por tu compra!');
-                    limpiarCarrito();
-                })
-            } else {
-                alert('Error! Alguno de los items que seleccionaste estan agotados :(');
-            }
         })
     }
     return (

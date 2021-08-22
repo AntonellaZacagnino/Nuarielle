@@ -10,7 +10,7 @@ export const ItemDetail = ({id, nombre, img, descripcion, precio, stock}) => {
 
     const finalizarCompra = () => {if (count > 0) setFinalizar(!finalizar)};
     
-    const {agregarItem, carrito} = useContext(CartContext);
+    const {agregarItem} = useContext(CartContext);
 
     const añadirItem = () => {
 
@@ -34,7 +34,7 @@ export const ItemDetail = ({id, nombre, img, descripcion, precio, stock}) => {
                 <p><i>{descripcion}</i></p>
                 {!finalizar ? (
                     <div className='compra'>
-                    <ItemCount stock={8} initial={0} count={count} setCount={setCount} />
+                    <ItemCount stock={stock} initial={0} count={count} setCount={setCount} />
                     <button onClick={añadirItem}> Añadir al carrito</button>
                     </div>
 

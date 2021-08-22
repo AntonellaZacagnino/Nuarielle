@@ -4,7 +4,7 @@ E-commerce de emprendimiento de pastelería realizado en React.js
 
 Recorrido para realizar una compra 
 
-https:/![](https://giphy.com/gifs/mOVraSsDhqLS50Mrsp)/
+![](https://giphy.com/gifs/mOVraSsDhqLS50Mrsp)
 
 ### Librerias usadas:
 

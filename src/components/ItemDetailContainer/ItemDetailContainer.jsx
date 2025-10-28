@@ -3,41 +3,43 @@ import {ItemDetail} from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
 import BounceLoader from "react-spinners/BounceLoader";
 import { css } from "@emotion/react";
-import { getFirestore } from '../../firebase/firebase';
+import './ItemDetailContainer.css';
+import { db } from '../../firebase/firebase';
+import { doc, getDoc } from 'firebase/firestore';
 
 export const ItemDetailContainer = () => {
     const {itemId} = useParams();
     const [loading, setLoading] = useState(true);
     const override = css`
         display: block;
-        margin: 20vh auto;
+        margin: 0 auto;
         border-color: red;
     `;
 
-    const [displayItem, setDisplayItem] = useState([]);
+    const [displayItem, setDisplayItem] = useState(null);
     useEffect(() => {
-        const db = getFirestore();
-        const productos = db.collection("productos");
-        productos.get().then((query) => {
-            query.docs.map(doc => {
-                if (doc.id === itemId){
-                    setDisplayItem({
-                        ...doc.data(), 
-                        id:doc.id
-                    })
-                }
-            })
-        }).finally(() => {
-            setLoading(false)
-        })
-    })
+        const fetchProduct = async () => {
+            const docRef = doc(db, "productos", itemId);
+            const docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+                setDisplayItem({...docSnap.data(), id: docSnap.id});
+            }
+            // Delay adicional para mostrar el loader más tiempo
+            setTimeout(() => {
+                setLoading(false);
+            }, 2000);
+        };
+        fetchProduct();
+    }, [itemId])
 
     return (
         <div>
             {!loading ? 
             displayItem && <ItemDetail {...displayItem} />
             :
-            <BounceLoader css={override} size={150} color={"#d8a3b3"} loading={loading} speedMultiplier={1} />
+            <div className="loader-container">
+                <BounceLoader css={override} size={150} color={"#d8a3b3"} loading={loading} speedMultiplier={1} />
+            </div>
             }
         </div>
     )

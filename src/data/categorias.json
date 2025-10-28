@@ -2,19 +2,27 @@
     "categorias" : [
         {
             "id": "personalizadas",
-            "nombre": "Tortas personalizadas"
+            "nombre": "Tortas personalizadas",
+            "descripcion": "Personaliza la torta de tus sueños.",
+            "icon": "🎂"
         },
         {
             "id": "tortas",
-            "nombre": "Tortas"
+            "nombre": "Tortas clasicas",
+            "descripcion": "Los clásicos nunca pasan de moda.",
+            "icon": "🥧"
         },
         {   
             "id": "cupcakes",
-            "nombre": "Cupcakes"
+            "nombre": "Cupcakes",
+            "descripcion": "Pequeñas delicias que nunca pueden faltar.",
+            "icon": "🧁"
         },
         {
             "id": "combos",
-            "nombre": "Combos"
+            "nombre": "Combos",
+            "descripcion": "Elegí tu combo perfecto para tener una gran mesa dulce.",
+            "icon": "🎁"
         } 
     ]
 }

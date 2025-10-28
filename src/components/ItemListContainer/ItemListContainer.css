@@ -1,50 +1,170 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;700&display=swap");
 .items {
-  text-align: center;
-}
-.items h1 {
-  font-family: "Quicksand", sans-serif;
-}
-.items ul {
-  display: flex;
-  justify-content: space-around;
-  flex-flow: row wrap;
-}
-.items ul a {
-  text-decoration-line: none;
-  transition: 5s;
-}
-.items ul a:hover {
-  opacity: 0.5;
-  transition: 0.3s;
-}
-.items ul li {
-  background-color: #f9e2c7;
-  list-style: none;
-  margin-bottom: 5vh;
-  padding: 3vh;
-  box-shadow: 6px 4px 23px -2px #B5B5B5;
-}
-.items ul li div {
-  border: 5px double #ef9cae;
-  padding: 10px;
-}
-.items ul li div h6 {
-  font-size: 25px;
-  margin: 10px 0;
-  color: #89e0e0;
-  text-shadow: 2px 2px 5px #694b3b;
-}
-.items ul li div img {
-  width: 350px;
-  height: 400px;
-}
-.items ul li div p {
-  background-color: #89e0e0;
-  color: #694b3b;
-  padding: 5px;
-  margin: 10px 60px;
-  border-radius: 10px;
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 2rem;
 }
 
-/*# sourceMappingURL=ItemListContainer.css.map */
+.items ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.items ul a {
+  text-decoration: none;
+  display: block;
+  height: 100%;
+}
+
+.items ul li {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.items ul li:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.items ul li div {
+  padding: 0;
+  border: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.items ul li div img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 25px;
+  padding: 10px;
+}
+
+.items ul li div h6 {
+  font-family: "Inter", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 1.5rem 1.5rem 1rem;
+  color: #333;
+  text-shadow: none;
+  line-height: 1.3;
+}
+
+.items ul li div p {
+  font-family: "Inter", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #d8a3b3, #f29eb0);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  margin: auto 1.5rem 1.5rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(216, 163, 179, 0.3);
+}
+
+/* Loading spinner container */
+.items .spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .items {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+  
+  .items ul {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .items ul li div img {
+    height: 240px;
+  }
+  
+  .items ul li div h6 {
+    font-size: 1.1rem;
+    margin: 1rem 1rem 0.5rem;
+  }
+  
+  .items ul li div p {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    margin: auto 1rem 1rem;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .items {
+    padding: 0.5rem;
+    margin: 0.5rem auto;
+  }
+  
+  .items ul {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .items ul li {
+    margin: 0 0.5rem;
+  }
+  
+  .items ul li div img {
+    height: 200px;
+  }
+  
+  .items ul li div h6 {
+    font-size: 1rem;
+    margin: 0.8rem 0.8rem 0.4rem;
+  }
+  
+  .items ul li div p {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+    margin: auto 0.8rem 0.8rem;
+  }
+}

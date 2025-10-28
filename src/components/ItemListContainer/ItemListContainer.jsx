@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ItemListContainer.css';
 import { useParams } from 'react-router-dom';
-import { getFirestore } from '../../firebase/firebase';
+import { db } from '../../firebase/firebase';
+import { collection, query, where, getDocs } from 'firebase/firestore';
 import {Item} from '../Item/Item'
 import { css } from "@emotion/react";
 import BounceLoader from "react-spinners/BounceLoader";
@@ -15,21 +16,28 @@ export const ItemListContainer = () =>  {
             margin: 20vh auto;
             border-color: red;
         `;
-        const db = getFirestore();
-        const productos = db.collection("productos").where('categoria', '==', catId);
-        productos.get().then((query) => {
-            setItemsDisplay(query.docs.map(doc => {return {...doc.data(), id:doc.id}}))
-        }).finally(() => {
-            setLoading(false)
-        })
+        
+        useEffect(() => {
+            const fetchProducts = async () => {
+                const q = query(collection(db, "productos"), where('categoria', '==', catId));
+                const querySnapshot = await getDocs(q);
+                setItemsDisplay(querySnapshot.docs.map(doc => ({...doc.data(), id: doc.id})));
+                setTimeout(() => {
+                    setLoading(false);
+                }, 2000);
+            };
+            fetchProducts();
+        }, [catId]);
 
       return (
         <div className="items">
-            <ul>
+            <ul className={!loading ? 'fade-in' : ''}>
                 {!loading ? 
                 itemsDisplay.map((item) => <Item item={item} categoria={catId} key={item.id} /> )
                 :
-                <BounceLoader css={override} size={150} color={"#d8a3b3"} loading={loading} speedMultiplier={1} />
+                <div className="spinner-container">
+                    <BounceLoader css={override} size={150} color={"#d8a3b3"} loading={loading} speedMultiplier={1} />
+                </div>
                 }
             </ul>    
         </div>  

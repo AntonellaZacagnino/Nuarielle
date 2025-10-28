@@ -1,43 +1,74 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;700&display=swap");
 .itemCount {
-  margin-top: 5vh;
-  text-align: center;
-  background: #f9e2c7;
-  border-radius: 40px;
-  padding: 1vh 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 1rem 2rem;
+  border: 1px solid rgba(216, 163, 179, 0.2);
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
-.itemCount h1 {
-  font-family: "Quicksand", sans-serif;
-}
-.itemCount .add, .itemCount .remove {
-  background-color: #d8a3b3;
-  border: 3px solid #d8a3b3;
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
+
+.itemCount .add, 
+.itemCount .remove {
+  background: linear-gradient(135deg, #d8a3b3, #f29eb0);
+  border: none;
+  width: 45px;
+  height: 45px;
+  font-size: 1.5rem;
   color: white;
   border-radius: 50%;
-  border: none;
-  margin: 0 5vh;
-}
-.itemCount .add:hover, .itemCount .remove:hover {
-  background-color: transparent;
-  border: 3px inset #d8a3b3;
-  font-size: 20px;
-  color: #d8a3b3;
   cursor: pointer;
-}
-.itemCount .add:disabled, .itemCount .remove:disabled {
-  cursor: not-allowed;
-  background-color: #bbbbbb;
-  border: 3px solid #525252;
-  color: #727272;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(216, 163, 179, 0.3);
 }
 
-@media (max-width: 1200px) {
-  .itemCount .add, .itemCount .remove {
-    margin: 0 1vh;
+.itemCount .add:hover, 
+.itemCount .remove:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(216, 163, 179, 0.4);
+}
+
+.itemCount .add:active, 
+.itemCount .remove:active {
+  transform: scale(0.95);
+}
+
+.itemCount .add:disabled, 
+.itemCount .remove:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.6;
+}
+
+.itemCount .add:disabled:hover, 
+.itemCount .remove:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .itemCount {
+    gap: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .itemCount .add, 
+  .itemCount .remove {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
   }
 }
-
-/*# sourceMappingURL=ItemCount.css.map */

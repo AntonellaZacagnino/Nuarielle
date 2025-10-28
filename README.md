@@ -2,15 +2,12 @@
 
 E-commerce de emprendimiento de pastelería realizado en React.js 
 
-Recorrido para realizar una compra 
-
-![](https://media.giphy.com/media/mOVraSsDhqLS50Mrsp/giphy.gif?cid=790b7611e8898111891b20cc1c46286ffc4625dc8ef8c4bf&rid=giphy.gif&ct=g)
-
 ### Librerias usadas:
 
 - React
 - Firebase
 - React-spinners
+- -Toast
 
 
 
